@@ -1,6 +1,6 @@
 .row
   .col-xs-12
-    h3.text-center Register
+    h3.text-center Login
 .row
   .col-xs-4
   .col-xs-4
@@ -11,6 +11,6 @@
       .form-group
         label(for='due') Password
         input.form-control#password(type='password', name='password', minlength='3', ng-model='user.password', required)
-      button.btn.btn-success.pull-right(ng-show='userForm.$valid', ng-click='register()') Register
+      button.btn.btn-success.pull-right(ng-show='userForm.$valid', ng-click='login()') Login
   .col-xs-4
 
