@@ -10,8 +10,11 @@
     function login(user){
       return $http.post('/login', user);
     }
+    function logout(){
+      return $http.delete('/logout');
+    }
 
-    return {register:register, login:login};
+    return {register:register, login:login, logout:logout};
   }]);
 })();
 

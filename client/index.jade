@@ -10,7 +10,6 @@ html(ng-app='yum.my', lang='en')
     link(href='/vendor/toastr/toastr.css', rel='stylesheet')
     link(href='/index.css', rel='stylesheet')
     link(href='/views/home/home.css', rel='stylesheet')
-    link(href='/views/register/register.css', rel='stylesheet')
   body
     include nav
     .container
@@ -26,9 +25,12 @@ html(ng-app='yum.my', lang='en')
     script(src='/vendor/toastr/toastr.js')
     script(src='/config/toastr.js')
     script(src='/index.js')
+    script(src='/nav.js')
     script(src='/views/home/home.js')
     script(src='/views/register/register.js')
     script(src='/views/login/login.js')
+    script(src='/views/logout/logout.js')
     script(src='/components/factories/home.js')
     script(src='/components/factories/user.js')
+    script(src='/components/factories/http-interceptor.js')
 

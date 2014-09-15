@@ -8,4 +8,4 @@ exports.authenticate = function(req, res, next){
     res.setHeader('X-Authenticated-User', user ? user.email : 'anonymous');
     next();
   });
-}
+};
