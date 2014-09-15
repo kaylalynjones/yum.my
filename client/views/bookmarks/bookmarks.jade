@@ -1,0 +1,14 @@
+.col-xs-3
+  h3 Bookmarks
+  #categories
+    ul
+      li(ng-repeat='category in categories') {{category.name}}
+.col-xs-3
+  form.form(name='categoryForm', role='form', novalidate)
+    .form-group
+      label(for='name') Category
+      input.form-control#name(type='text', name='name', ng-model='category.name', required, autofocus, placeholder='Cooking, Health...')
+    button.btn.btn-success.pull-right(ng-show='categoryForm.$valid', ng-click='addCategory()') Add Category
+.col-xs-6
+
+

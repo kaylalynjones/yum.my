@@ -2,7 +2,14 @@
   'use strict';
 
   angular.module('yum.my')
-  .factory('HttpInterceptor', ['$rootScope', function($rootScope){
+  .factory('HttpInterceptor', '$location', '$q', ['$rootScope', function($rootScope, $location, $q){
+    function responseError(res){
+      if(res.status === 401){
+        $location.path('/');
+      }
+      return $q.reject(res);
+    }
+
 
     function response(res){
       var email = res.headers('x-authenticated-user');
@@ -13,7 +20,7 @@
       return res;
     }
 
-    return{response:response};
+    return{response:response, responseError:responseError};
   }]);
 })();
 
