@@ -10,9 +10,9 @@
     $scope.categoryId = $routeParams.categoryId;
 
     $scope.addCategory = function(){
-      Category.create($scope.name).then(function(response){
+      Category.create($scope.category).then(function(response){
         $scope.categories.push(response.data.category);
-        $scope.name = '';
+        $scope.category = {};
       });
     };
     Category.all().then(function(response){
@@ -22,7 +22,6 @@
 
     $scope.addBookmark = function(){
       Bookmark.create($scope.bookmark).then(function(response){
-        debugger;
         $scope.bookmarks.push(response.data.bookmark);
         $scope.bookmark = {};
       });
