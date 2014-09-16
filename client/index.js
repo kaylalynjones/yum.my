@@ -8,7 +8,7 @@
     .when('/register', {templateUrl:'/views/register/register.html', controller:'RegisterCtrl'})
     .when('/login', {templateUrl:'/views/login/login.html', controller:'LoginCtrl'})
     .when('/logout', {templateUrl:'/views/logout/logout.html', controller:'LogoutCtrl'})
-    .when('/bookmarks', {templateUrl:'/views/bookmarks/bookmarks.html', controller:'BookmarksCtrl'})
+    .when('/bookmarks/:categoryId?', {templateUrl:'/views/bookmarks/bookmarks.html', controller:'BookmarksCtrl'})
     .otherwise({redirectTo:'/'});
 
     $httpProvider.interceptors.push('HttpInterceptor');

@@ -2,10 +2,11 @@
   'use strict';
 
   angular.module('yum.my')
-  .factory('HttpInterceptor', '$location', '$q', ['$rootScope', function($rootScope, $location, $q){
+  .factory('HttpInterceptor', ['$rootScope', '$location', '$q', function($rootScope, $location, $q){
+
     function responseError(res){
       if(res.status === 401){
-        $location.path('/');
+        $location.path('/login');
       }
       return $q.reject(res);
     }

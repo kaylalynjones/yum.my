@@ -9,6 +9,7 @@ var morgan         = require('morgan'),
     security       = require('../lib/security'),
     home           = require('../controllers/home'),
     users          = require('../controllers/users'),
+    bookmarks      = require('../controllers/bookmarks'),
     categories     = require('../controllers/categories');
 
 module.exports = function(app, express){
@@ -28,8 +29,10 @@ module.exports = function(app, express){
   app.delete('/logout', users.logout);
 
   app.use(security.bounce);
-  app.post('/bookmarks', categories.create);
+  app.post('/bookmarks/categories', categories.create);
+  app.post('/bookmarks/add', bookmarks.create);
   app.get('/bookmarks', categories.all);
+
 
   console.log('Express: Routes Loaded');
 };

@@ -1,14 +1,33 @@
 .col-xs-3
   h3 Bookmarks
-  #categories
+  #categories(ng-model='search')
     ul
-      li(ng-repeat='category in categories') {{category.name}}
+      li(ng-repeat='category in categories')
+        a(href='#/bookmarks/{{category._id}}') {{category.name}}
 .col-xs-3
+  h4 Create a Category
   form.form(name='categoryForm', role='form', novalidate)
     .form-group
-      label(for='name') Category
-      input.form-control#name(type='text', name='name', ng-model='category.name', required, autofocus, placeholder='Cooking, Health...')
+      label(for='name') Name
+      input.form-control#name(type='text', name='name', ng-model='category.name', placeholder='Cooking, Health...')
     button.btn.btn-success.pull-right(ng-show='categoryForm.$valid', ng-click='addCategory()') Add Category
 .col-xs-6
-
+  h4 Add your bookmarks
+  form.form(name='bookmarkForm', role='form', novalidate)
+    .form-group
+      label(for='bookmarkName') Name
+      input.form-control#bookmark-name(type='text', name='bookmarkName', ng-model='bookmark.name', required, autofocus)
+    .form-group
+      label(for='link') Link
+      input.form-control#link(type='text', name='link', ng-pattern='/^http/', ng-model='bookmark.link', required)
+    .form-group
+      label.label-control(for='categoryId') Category
+        select.form-control(name='categoryId', ng-model='bookmark.categoryId', ng-options='c._id as c.name for c in categories', required)
+          option.form-control(value='') Select Category
+    button.btn.btn-success.pull-right(ng-show='bookmarkForm.$valid', ng-click='addBookmark()') Add Bookmark
+.row
+  .col-xs-3
+  .col-xs-9
+    ul
+      li(ng-repeat='bookmark in bookmarks | filter:categoryId'): a(href='{{bookmark.link}}') {{bookmark.name}}
 

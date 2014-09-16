@@ -4,13 +4,10 @@
   angular.module('yum.my')
   .factory('Bookmark', ['$http', function($http){
 
-    function createCat(category){
-      return $http.post('/bookmarks', category);
-    }
-    function all(){
-      return $http.get('/bookmarks');
+    function create(bookmark){
+      return $http.post('/bookmarks/add', bookmark);
     }
 
-    return {createCat:createCat, all:all};
+    return {create:create};
   }]);
 })();
